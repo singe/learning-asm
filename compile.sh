@@ -8,13 +8,26 @@ run=false
 cleanup=false
 xxd=false
 
+function usage() {
+  echo """
+    Simple assembler and linker automation
+    Usage:
+      -h help This help
+      -a arch Specify the architecture default: x86_64
+      -r run  Run the program after building it
+      -c cleanup Delete the .o and binary afterwards
+      -x xxd  Run the output through xxd when running it
+  """
+  exit 0
+}
+
 while getopts "hrcxa:" OPTIONS; do
   case ${OPTIONS} in
-    h|-help) usage;;
-    a|--arch) arch="$OPTARG";;
-    r|--run) run=true;;
-    c|--cleanup) cleanup=true;;
-    x|--xxd) xxd=true;;
+    h) usage;;
+    a) arch="$OPTARG";;
+    r) run=true;;
+    c) cleanup=true;;
+    x) xxd=true;;
   esac
 done
 
