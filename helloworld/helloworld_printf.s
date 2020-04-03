@@ -1,4 +1,3 @@
-# clang -S generated code for helloworld_printf.c
 	.section	__TEXT,__text,regular,pure_instructions
 	.build_version macos, 10, 15	sdk_version 10, 15, 4
 	.globl	_main                   ## -- Begin function main
@@ -6,16 +5,13 @@
 _main:                                  ## @main
 	.cfi_startproc
 ## %bb.0:
-	pushq	%rbp
+	pushq	%rax
 	.cfi_def_cfa_offset 16
-	.cfi_offset %rbp, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register %rbp
 	leaq	L_.str(%rip), %rdi
 	leaq	L_.str.1(%rip), %rsi
 	movb	$0, %al
 	callq	_printf
-	popq	%rbp
+	popq	%rax
 	retq
 	.cfi_endproc
                                         ## -- End function
