@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Defaults
 args=("$@")
@@ -13,7 +13,7 @@ function usage() {
     Simple assembler and linker automation
     Usage:
       -h help This help
-      -a arch Specify the architecture default: x86_64
+      -a <arch> Specify the architecture default: x86_64
       -r run  Run the program after building it
       -c cleanup Delete the .o and binary afterwards
       -x xxd  Run the output through xxd when running it
