@@ -1,0 +1,46 @@
+Source: https://nickdesaulniers.github.io/blog/2014/04/18/lets-write-some-x86-64/
+
+Sections
+* .text - instructions
+* .data - non null static vars
+* .bss - static non initialised vars
+
+Directives
+* .globl - tells linker where main is
+
+Instruction Suffix
+* b for 1 byte (8 bits)
+* w for a word (2 bytes, 16 bits)
+* l for a long or double word (4 bytes, 32 bits)
+* q for a quad word (8 bytes, 64 bits)
+
+Register Alternates
+* rax - 64bit
+* eax - 32bit
+* ax - 16 bit
+* al - lower 8 bits
+* ah - higher 8 bits
+* more at https://web.stanford.edu/class/archive/cs/cs107/cs107.1202/guide/x86-64.html
+
+Stack Pointer Alignment
+* function calls need the stack pointer to be aligned by a multiple of 16 bytes
+* By default, they are off by 8 on function entry
+
+Arguments & Function Calls
+* The calling conventions for function invocations require passing integer arguments in the following sequence of registers: %rdi, %rsi, %rdx, %rcx, %r8, %r9, then pushing the rest on the stack in reverse order.
+  1 rdi
+  2 rsi
+  3 rdx
+  4 rcx
+  5 r8
+  6 r9
+* You may have heard that arguments to functions are pushed on the stack in reverse order, but that’s an old x86 convention
+* With the addition of 8 more general purpose registers, we now pass up to the first 6 arguments in registers 
+* then push the rest, if any, on the stack in reverse order
+* Variadic functions need to have the number of vector arguments specified in %al.
+* Most registers are not preserved across function calls.
+* Non volatile registers - %rbx, %rsp, %rbp, and %r12-%r15
+
+
+Commands
+* objdump 
